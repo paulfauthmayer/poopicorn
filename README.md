@@ -25,10 +25,16 @@ Resources:
 
 ### Challenge 2 (Make News Great Again)
 Resources:  
+  * Clean data set with almost 13k classified websites: https://www.kaggle.com/mrisdal/fake-news
+  * 244 categorized websites: https://github.com/bs-detector/bs-detector/blob/dev/ext/data/data.json
   * https://www.researchgate.net/profile/Victoria_Rubin/publication/281818865_Automatic_Deception_Detection_Methods_for_Finding_Fake_News/links/55f96b1608ae07629dea2f43/Automatic-Deception-Detection-Methods-for-Finding-Fake-News.pdf
   * https://github.com/aldengolab/fake-news-detection
   * http://www.fakenewschallenge.org/
 
+Unclassified examples:  
+  * Almost half a million references to news pages collected from an web aggregator in the period from 10-March-2014 to 10-August-2014: https://archive.ics.uci.edu/ml/datasets/News+Aggregator
+  
+_Note_: I asked Eduardo if we are going to get a training set, awaiting for response...  
 ---
 
 ### Challenge 3 (Emotional AI)
