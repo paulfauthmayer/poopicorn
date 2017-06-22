@@ -23,7 +23,7 @@ Resources:
   
 ---
 
-### Challenge 2
+### Challenge 2 (Make News Great Again)
 Resources:  
   * https://www.researchgate.net/profile/Victoria_Rubin/publication/281818865_Automatic_Deception_Detection_Methods_for_Finding_Fake_News/links/55f96b1608ae07629dea2f43/Automatic-Deception-Detection-Methods-for-Finding-Fake-News.pdf
   * https://github.com/aldengolab/fake-news-detection
@@ -31,4 +31,27 @@ Resources:
 
 
 
-### Challenge 3
+### Challenge 3 (Emotional AI)
+
+**Issue**: Autists are generally struggling to realize and express human emotions
+
+**Idea**: What if we create an emotional dictionary for autists and their parents to help the communication between them and ease their everyday life with a little online webapp with facial recognition
+
+Resources:
+  * http://news.stanford.edu/news/2012/august/autism-emotion-research-081312.html
+  * http://theconversation.com/people-with-autism-dont-lack-emotions-but-often-have-difficulty-identifying-them-25225
+  
+---
+
+**Issue**: Learning a foreign language is hard and the learning can be daunting sometimes, but if we find the enjoyment part all the effort we put in it just becomes fun. 
+
+**Idea**: Let's create a platform where people can learn useful phrases and the basics of the language based on their favorite songs simply by matching the url and a situation of the song. (Think about Italian or Latin soap operas, where you really don't know if they just talk or heavily arguing about something!) 
+
+--
+
+**Issue**: One of the main reasons people are living their company (besid money) is that they feel burnout, or stucked at the position they currently have, which is especially true for the millenials.
+
+**Idea**: What if we create an emotional blog for employees where they can record their daily good & bad happenings by voice recording and the platform would automatically do a sentiment analysis detecting the tone and the mood during the day. In case of longer term thinking this might be a tool for the employer also to monitor anonimously the situation of the company, which area they should change or motivate people more with something else.
+
+
+
