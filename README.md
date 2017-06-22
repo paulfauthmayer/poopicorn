@@ -47,6 +47,8 @@ Resources:
 
 **Idea**: Let's create a platform where people can learn useful phrases and the basics of the language based on their favorite songs / TV series simply by matching the url and a situation of the song on Youtube / Netflix. (Think about Italian or Latin soap operas, where you really don't know if they just talk or heavily arguing about something!)
 
+Extension to the original idea: a slang dictionary --> in most of the TV shows they use really local slang phrases so what if we create a plaform where you can automatically find the real meaning of the sentence in plain english
+
 Extra: Spotify songs can be integrated too, where basically you don't even see the face of the singer and not every song has a music video by default
 
 ---
@@ -60,3 +62,9 @@ Extra: Spotify songs can be integrated too, where basically you don't even see t
 **Issue**: The YouTube is full of best of moments of movies and TV shows in different languages to show the best parts for the wider audience without watching the full movie
 
 **Idea**: Let's create a searchable video library which can scan YouTube and Netflix videos by a simple search term, so it's easy to get to the "best part" anytime without clicking around the whole timeline
+
+---
+
+**Issue**: There are literally thousand of websites and blogs around searching for what people are wearing in movies, music videos and TV shoes.
+
+**Idea**: What if we create a live recognition system where you can put in a url of the video you want to analyze and our platform automatically recognizing some objects of the video and offer you to buy it based on a Google search the system made
