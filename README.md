@@ -29,7 +29,7 @@ Resources:
   * https://github.com/aldengolab/fake-news-detection
   * http://www.fakenewschallenge.org/
 
-
+---
 
 ### Challenge 3 (Emotional AI)
 
@@ -45,9 +45,9 @@ Resources:
 
 **Issue**: Learning a foreign language is hard and the learning can be daunting sometimes, but if we find the enjoyment part all the effort we put in it just becomes fun. 
 
-**Idea**: Let's create a platform where people can learn useful phrases and the basics of the language based on their favorite songs simply by matching the url and a situation of the song. (Think about Italian or Latin soap operas, where you really don't know if they just talk or heavily arguing about something!) 
+**Idea**: Let's create a platform where people can learn useful phrases and the basics of the language based on their favorite songs / TV series simply by matching the url and a situation of the song on Youtube / Netflix. (Think about Italian or Latin soap operas, where you really don't know if they just talk or heavily arguing about something!) 
 
---
+---
 
 **Issue**: One of the main reasons people are living their company (besid money) is that they feel burnout, or stucked at the position they currently have, which is especially true for the millenials.
 
