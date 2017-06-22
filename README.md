@@ -45,7 +45,9 @@ Resources:
 
 **Issue**: Learning a foreign language is hard and the learning can be daunting sometimes, but if we find the enjoyment part all the effort we put in it just becomes fun. 
 
-**Idea**: Let's create a platform where people can learn useful phrases and the basics of the language based on their favorite songs / TV series simply by matching the url and a situation of the song on Youtube / Netflix. (Think about Italian or Latin soap operas, where you really don't know if they just talk or heavily arguing about something!) 
+**Idea**: Let's create a platform where people can learn useful phrases and the basics of the language based on their favorite songs / TV series simply by matching the url and a situation of the song on Youtube / Netflix. (Think about Italian or Latin soap operas, where you really don't know if they just talk or heavily arguing about something!)
+
+Extra: Spotify songs can be integrated too, where basically you don't even see the face of the singer and not every song has a music video by default
 
 ---
 
@@ -53,5 +55,8 @@ Resources:
 
 **Idea**: What if we create an emotional blog for employees where they can record their daily good & bad happenings by voice recording and the platform would automatically do a sentiment analysis detecting the tone and the mood during the day. In case of longer term thinking this might be a tool for the employer also to monitor anonimously the situation of the company, which area they should change or motivate people more with something else.
 
+---
 
+**Issue**: The YouTube is full of best of moments of movies and TV shows in different languages to show the best parts for the wider audience without watching the full movie
 
+**Idea**: Let's create a searchable video library which can scan YouTube and Netflix videos by a simple search term, so it's easy to get to the "best part" anytime without clicking around the whole timeline
