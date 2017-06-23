@@ -35,8 +35,15 @@ Resources:
 Unclassified examples:  
   * Almost half a million references to news pages collected from an web aggregator in the period from 10-March-2014 to 10-August-2014: https://archive.ics.uci.edu/ml/datasets/News+Aggregator
   
-_Note_: I asked Eduardo if we are going to get a training set, awaiting for response...  
----
+_Note_: I asked Eduardo if we are going to get a training set, awaiting for response...
+
+### Inverted fake news detection
+
+ **Issue**: Even if we had a perfect browser extension which would be able to perfectly tell news & fake news apart, the big problem is: The poeple who are consuming high amounts of fake news are the ones who would **never** install or use a fake news detection.
+
+ **Idea:** Lets make a super fun application that labels fake news as real and real as fake propaganda. The application will mark real news with some big _IN YOUR FACE_ conspiracy labels and the weird trump/nazi/hell news get something like a holy glow. We can create with a good presention a big impact in the crowd since its fun & ironic and we can try to win some people to vote for us. Of course the ML part has to be super tight and making correct classifications but winning the crowd needs something visual and provoking.
+
+--------------------------------------------
 
 ### Challenge 3 (Emotional AI)
 
