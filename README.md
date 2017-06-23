@@ -4,7 +4,7 @@ A repository used to store ideas & code for the Global AI Hackathon in Amsterdam
 _team theteambutbetter_
 
 
-## 1. Ideas
+## Ideas
 
 ### Challenge 1 (Microsoft NWOW)
 
