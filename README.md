@@ -20,7 +20,7 @@ _team theteambutbetter_
 
 Resources:
   * https://blog.barkly.com/phishing-statistics-2016
-  
+
 ---
 
 ### Challenge 2 (Make News Great Again)
@@ -34,9 +34,41 @@ Resources:
 
 Unclassified examples:  
   * Almost half a million references to news pages collected from an web aggregator in the period from 10-March-2014 to 10-August-2014: https://archive.ics.uci.edu/ml/datasets/News+Aggregator
-  
+
 _Note_: I asked Eduardo if we are going to get a training set, awaiting for response...  
 ---
+
+**Issue:** Facebook/ Social Media in general is crawling with fake news/populistic articles/clickbait
+
+**Idea:** Create a browser extension connected to a database + AI that marks every post with a percentage/score, indicating it's credibility.
+
+---
+
+**Issue:** People that would need fake news checks the most (people that frequent known fake news sites) are incredibly unlikely to use a tool that recognizes fake news
+
+**Idea:** Make news sites responsible for what they post and fix this in law. If they are repeated offenders, start fining them. This has many issues however like censorship concerns, inclusion of (political) bias and difficult execution. Things that would have to be worked out for this to function:
+  * flawless execution
+    * the AI would have to be able to distinguish between fake news and not fake news (and slightly fake news) with great accuracy
+    * bias is basically unavoidable but has to be minimzed
+  * definition: what is fake news?
+    * articles that think of something that fits their agenda?
+    * articles that willingly and knowingly propel false facts they did not create themselves?
+    * articles that are just incorrect without any ill meaning?
+    * populistic articles in general
+    * populistic articles that are technically correct but hold back a big chunk of the whole picture?
+    * --> this has to be determined by an independent jury WITHOUT any influence of the government
+  * how can you punish someone without infringing on his freedom of speech?
+    * punishments only for repeated offenders
+    * ... ? difficult decision
+
+---
+
+**Issue:** Fake news are highly subjective and not everyone has the same opinion on the line between fake news and proper news
+
+**Idea:** In order to avoid any political bias, only show metrics for sites that you visit. I.e. how many other sites report about it, for pictures count the amount of pictures returned with a google reverse image search and using those metrics, predict the likelihood of it being fake or not. 
+
+
+
 
 ### Challenge 3 (Emotional AI)
 
@@ -47,10 +79,10 @@ _Note_: I asked Eduardo if we are going to get a training set, awaiting for resp
 Resources:
   * http://news.stanford.edu/news/2012/august/autism-emotion-research-081312.html
   * http://theconversation.com/people-with-autism-dont-lack-emotions-but-often-have-difficulty-identifying-them-25225
-  
+
 ---
 
-**Issue**: Learning a foreign language is hard and the learning can be daunting sometimes, but if we find the enjoyment part all the effort we put in it just becomes fun. 
+**Issue**: Learning a foreign language is hard and the learning can be daunting sometimes, but if we find the enjoyment part all the effort we put in it just becomes fun.
 
 **Idea**: Let's create a platform where people can learn useful phrases and the basics of the language based on their favorite songs / TV series simply by matching the url and a situation of the song on Youtube / Netflix. (Think about Italian or Latin soap operas, where you really don't know if they just talk or heavily arguing about something!)
 
