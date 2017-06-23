@@ -30,6 +30,7 @@ Resources:
   * https://www.researchgate.net/profile/Victoria_Rubin/publication/281818865_Automatic_Deception_Detection_Methods_for_Finding_Fake_News/links/55f96b1608ae07629dea2f43/Automatic-Deception-Detection-Methods-for-Finding-Fake-News.pdf
   * https://github.com/aldengolab/fake-news-detection
   * http://www.fakenewschallenge.org/
+  * https://chatbotslife.com/how-artificial-intelligence-can-combat-fake-news-e5bbd9d18453
 
 Unclassified examples:  
   * Almost half a million references to news pages collected from an web aggregator in the period from 10-March-2014 to 10-August-2014: https://archive.ics.uci.edu/ml/datasets/News+Aggregator
