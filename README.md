@@ -35,8 +35,14 @@ Resources:
 Unclassified examples:  
   * Almost half a million references to news pages collected from an web aggregator in the period from 10-March-2014 to 10-August-2014: https://archive.ics.uci.edu/ml/datasets/News+Aggregator
 
-_Note_: I asked Eduardo if we are going to get a training set, awaiting for response...  
----
+_Note_: I asked Eduardo if we are going to get a training set, awaiting for response...
+
+### Inverted fake news detection
+
+ **Issue**: Even if we had a perfect browser extension which would be able to perfectly tell news & fake news apart, the big problem is: The poeple who are consuming high amounts of fake news are the ones who would **never** install or use a fake news detection.
+
+ **Idea:** Lets make a super fun application that labels fake news as real and real as fake propaganda. The application will mark real news with some big _IN YOUR FACE_ conspiracy labels and the weird trump/nazi/hell news get something like a holy glow. We can create with a good presention a big impact in the crowd since its fun & ironic and we can try to win some people to vote for us. Of course the ML part has to be super tight and making correct classifications but winning the crowd needs something visual and provoking.
+
 
 **Issue:** Facebook/ Social Media in general is crawling with fake news/populistic articles/clickbait
 
@@ -46,10 +52,10 @@ _Note_: I asked Eduardo if we are going to get a training set, awaiting for resp
 
 **Issue:** People that would need fake news checks the most (people that frequent known fake news sites) are incredibly unlikely to use a tool that recognizes fake news
 
-**Idea:** Make news sites responsible for what they post and fix this in law. If they are repeated offenders, start fining them. This has many issues however like censorship concerns, inclusion of (political) bias and difficult execution. Things that would have to be worked out for this to function:
+**Idea:** Make news sites responsible for what they post and fix this in law. If they are repeated offenders, start fining them. This has **a lot** of issues however like censorship concerns, inclusion of (political) bias and difficult execution. Things that would have to be worked out for this to function:
   * flawless execution
     * the AI would have to be able to distinguish between fake news and not fake news (and slightly fake news) with great accuracy
-    * bias is basically unavoidable but has to be minimzed
+    * bias is basically unavoidable but has to be minimized
   * definition: what is fake news?
     * articles that think of something that fits their agenda?
     * articles that willingly and knowingly propel false facts they did not create themselves?
@@ -65,7 +71,7 @@ _Note_: I asked Eduardo if we are going to get a training set, awaiting for resp
 
 **Issue:** Fake news are highly subjective and not everyone has the same opinion on the line between fake news and proper news
 
-**Idea:** In order to avoid any political bias, only show metrics for sites that you visit. I.e. how many other sites report about it, for pictures count the amount of pictures returned with a google reverse image search and using those metrics, predict the likelihood of it being fake or not. 
+**Idea:** In order to avoid any political bias, only show metrics for sites that you visit. I.e. how many other sites report about it, for pictures count the amount of pictures returned with a google reverse image search and using those metrics, predict the likelihood of it being fake or not.
 
 
 
