@@ -5,7 +5,7 @@
   "name": "poopycorn",
   "version": "1.0",
   "icons": {
-    "48": "icons/beasts-48.png"
+    "48": "icons/Poopicorn_logo_48px.png"
   },
 
   "permissions": [
@@ -13,7 +13,7 @@
   ],
 
   "browser_action": {
-    "default_icon": "icons/beasts-32.png",
+    "default_icon": "icons/Poopicorn_logo_48px.png",
     "default_title": "poopycorn",
     "default_popup": "popup/poopy.html"
   },

@@ -1,17 +1,7 @@
-/*
-Listen for clicks in the popup.
 
-If the click is on one of the beasts:
-  Inject the "beastify.js" content script in the active tab.
-
-  Then get the active tab and send "beastify.js" a message
-  containing the URL to the chosen beast's image.
-
-If it's on a button wich contains class "clear":
-  Reload the page.
-  Close the popup. This is needed, as the content script malfunctions after page reloads.
-*/
 console.log("ext");
+
+let exampleSocket = new WebSocket("ws://www.example.com/socketserver", "protocolOne");
 
 
 document.addEventListener("click", (e) => {
