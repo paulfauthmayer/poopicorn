@@ -2,17 +2,25 @@ console.log("onSite with sockets");
 
 function getPosts(request, sender, sendResponse)
 {
-  console.log("start getPosts");
-
-  let listOfPosts = document.getElementsByClassName('fbUserContent');
-  for (let i = 0; i < listOfPosts.length;i++)
+  if (undefined != request["getStarted"] && request["getStarted"] == "starting")
   {
-    let postData = getRelevantData(listOfPosts[i]);
-    if (postData !=  null && isNotSendYet(postData) )
+    console.log("start getPosts");
+
+    let listOfPosts = document.getElementsByClassName('fbUserContent');
+    for (let i = 0; i < listOfPosts.length;i++)
     {
-      sendPostData(postData);
+      let postData = getRelevantData(listOfPosts[i]);
+      if (postData !=  null && isNotSendYet(postData) )
+      {
+        sendPostData(postData);
+      }
     }
+  } else if (undefined != request["markPosts"] && request["markPosts"] == "starting")
+  {
+    console.log("sadsd");
+    console.log(request.data);
   }
+
 }
 function isNotSendYet(postData) {
   if(true) {
