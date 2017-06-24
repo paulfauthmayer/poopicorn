@@ -2,19 +2,18 @@
 browser.runtime.onMessage.addListener(notify);
 
 let uri = "ws://echo.websocket.org/";
+let websocket = new WebSocket(uri);
 
-function notify(message) {
-  console.log(message);
-
-  websocket = new WebSocket(uri);
-
-  websocket.onopen = function(evt) { onOpen(evt, message) };
+function notify(message)
+{
+  console.log(message.data);
+  let title = message.data["title"];
+  console.log(title);
+  websocket.onopen = function(evt) { onOpen(evt, title) };
   websocket.onclose = function(evt) { onClose(evt) };
   websocket.onmessage = function(evt) { onMessage(evt) };
   websocket.onerror = function(evt) { onError(evt) };
-
 }
-
 
 
 function onOpen(evt, message)

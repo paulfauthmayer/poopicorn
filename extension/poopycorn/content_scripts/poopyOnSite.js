@@ -20,7 +20,7 @@ function getRelevantData (fbUserContent)
   let titleEl = fbUserContent.getElementsByClassName("mbs")[0] ? fbUserContent.getElementsByClassName("mbs")[0].innerText : null;
   let subtitleEl = fbUserContent.getElementsByClassName("_6m7")[0] ? fbUserContent.getElementsByClassName("_6m7")[0].innerText : null;
   let descriptionEl = fbUserContent.getElementsByClassName("userContent")[0].getElementsByTagName("p")[0] ? fbUserContent.getElementsByClassName("userContent")[0].getElementsByTagName("p")[0].innerText : null;
-  // let posterEl = fbUserContent.getElementsByTagName("h5")[0] ? fbUserContent.getElementsByTagName("h5")[0].textContent : null;
+  let posterEl = fbUserContent.getElementsByTagName("h5")[0] ? fbUserContent.getElementsByTagName("h5")[0].innerText : null;
   let websiteEl = fbUserContent.getElementsByClassName("ellipsis")[0] ? fbUserContent.getElementsByClassName("ellipsis")[0].innerText.toLowerCase() : null;
 
   // let imageEl = fbUserContent.getElementsByClassName("scaledImageFitWidth")[0]
@@ -35,7 +35,7 @@ function getRelevantData (fbUserContent)
       subtitle: subtitleEl,
       description: descriptionEl,
       website: websiteEl,
-      // poster: posterEl,
+      poster: posterEl,
 
     };
     return data;

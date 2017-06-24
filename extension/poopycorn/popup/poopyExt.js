@@ -1,11 +1,4 @@
 
-window.addEventListener("custom-event-id", function(e)
-{
-  console.log("got event for ", e.originalTarget, "with data", e.detail);
-});
-
-
-
 document.addEventListener("click", (e) =>
 {
   if (e.target.classList.contains("activate"))
