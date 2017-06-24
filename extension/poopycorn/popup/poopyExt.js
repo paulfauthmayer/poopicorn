@@ -1,18 +1,15 @@
 
-console.log("ext");
+window.addEventListener("custom-event-id", function(e)
+{
+  console.log("got event for ", e.originalTarget, "with data", e.detail);
+});
 
-let exampleSocket = new WebSocket("ws://www.example.com/socketserver", "protocolOne");
 
 
-document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("activate")) {
-
-    console.log("click");
-
-  browser.tabs.executeScript(null, {
-      file: "/content_scripts/jquery-3.2.1.js"
-    });
-
+document.addEventListener("click", (e) =>
+{
+  if (e.target.classList.contains("activate"))
+  {
   browser.tabs.executeScript(null, {
       file: "/content_scripts/poopyOnSite.js"
     });
@@ -22,7 +19,8 @@ document.addEventListener("click", (e) => {
       browser.tabs.sendMessage(tabs[0].id, {getStarted: "starting"});
     });
   }
-  else if (e.target.classList.contains("clear")) {
+  else if (e.target.classList.contains("clear"))
+  {
     browser.tabs.reload();
     window.close();
 

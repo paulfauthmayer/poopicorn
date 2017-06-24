@@ -18,8 +18,8 @@
     "default_popup": "popup/poopy.html"
   },
 
-  "web_accessible_resources": [
-    "/content_scripts/jquery-3.2.1.js"
-  ]
 
+  "background": {
+    "scripts": [ "socket.io.min.js", "background.js"]
+  }
 }
