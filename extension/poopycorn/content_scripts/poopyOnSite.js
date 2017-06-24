@@ -8,13 +8,19 @@ function getPosts(request, sender, sendResponse)
   for (let i = 0; i < listOfPosts.length;i++)
   {
     let postData = getRelevantData(listOfPosts[i]);
-    if (postData !=  null)
+    if (postData !=  null && isNotSendYet(postData) )
     {
       sendPostData(postData);
     }
   }
 }
-
+function isNotSendYet(postData) {
+  if(true) {
+    return true;
+  } else {
+    return false;
+  }
+}
 function getRelevantData (fbUserContent)
 {
   let titleEl = fbUserContent.getElementsByClassName("mbs")[0] ? fbUserContent.getElementsByClassName("mbs")[0].innerText : null;

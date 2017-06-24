@@ -1,50 +1,39 @@
 
-browser.runtime.onMessage.addListener(notify);
+browser.runtime.onMessage.addListener(doSend(message));
 
-let uri = "ws://echo.websocket.org/";
-let websocket = new WebSocket(uri);
+let uri = "ws://poopicor.pavo.uberspace.de:5000/echo";
+var websocket = new WebSocket(uri);
 
-function notify(message)
+websocket.onopen = function(evt) { onOpen(evt) };
+websocket.onclose = function(evt) { onClose(evt) };
+websocket.onmessage = function(evt) { onMessage(evt) };
+websocket.onerror = function(evt) { onError(evt) };
+console.log("send")
+
+function onOpen(evt)
 {
-  console.log(message.data);
-  let title = message.data["title"];
-  console.log(title);
-  websocket.onopen = function(evt) { onOpen(evt, title) };
-  websocket.onclose = function(evt) { onClose(evt) };
-  websocket.onmessage = function(evt) { onMessage(evt) };
-  websocket.onerror = function(evt) { onError(evt) };
-}
-
-
-function onOpen(evt, message)
-{
-  writeToScreen("CONNECTED");
-  doSend(message);
+  console.log("CONNECTED");
+  //doSend("message");
 }
 
 function onClose(evt)
 {
-  writeToScreen("DISCONNECTED");
+  console.log("DISCONNECTED");
 }
 
 function onMessage(evt)
 {
-  writeToScreen('RESPONSE: ' + evt.data);
+  console.log('RESPONSE: ' + evt.data);
   websocket.close();
 }
 
 function onError(evt)
 {
-  writeToScreen('ERROR ' + evt.data);
+  console.log('ERROR ' + evt.data);
 }
 
 function doSend(message)
 {
-  writeToScreen("SENT: " + message);
+  console.log("SENT: " + message);
   websocket.send(message);
-}
-
-function writeToScreen(message)
-{
-  console.log(message);
 }
