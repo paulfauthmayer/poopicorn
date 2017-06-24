@@ -1,0 +1,30 @@
+{
+
+  "manifest_version": 2,
+  "name": "Poopy",
+  "version": "1.0",
+
+  "description": "Test manifest",
+
+  "icons": {
+    "48": "icons/poopy.jpg"
+
+  },
+
+  "permissions": [
+   "activeTab"
+ ],
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.facebook.com/*"],
+      "js": ["jquery-3.2.1.js","poopy.js"]
+    }
+  ],
+
+
+  "web_accessible_resources": [
+      "/content_scripts/jquery-3.2.1.js"
+  ]
+
+}

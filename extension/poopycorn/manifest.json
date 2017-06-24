@@ -1,30 +1,25 @@
 {
 
+  "description": "TEST 2",
   "manifest_version": 2,
-  "name": "Poopy",
+  "name": "poopycorn",
   "version": "1.0",
-
-  "description": "Test manifest",
-
   "icons": {
-    "48": "icons/poopy.jpg"
-
+    "48": "icons/beasts-48.png"
   },
 
   "permissions": [
-   "activeTab"
- ],
-
-  "content_scripts": [
-    {
-      "matches": ["*://*.facebook.com/*"],
-      "js": ["jquery-3.2.1.js","poopy.js"]
-    }
+    "activeTab"
   ],
 
+  "browser_action": {
+    "default_icon": "icons/beasts-32.png",
+    "default_title": "poopycorn",
+    "default_popup": "popup/poopy.html"
+  },
 
   "web_accessible_resources": [
-      "/content_scripts/jquery-3.2.1.js"
+    "/content_scripts/jquery-3.2.1.js"
   ]
 
 }
