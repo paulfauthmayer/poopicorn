@@ -1,4 +1,8 @@
 
+# coding: utf-8
+
+# In[2]:
+
 #%load_ext autoreload
 #%reload_ext autoreload
 import pandas as pd
@@ -6,33 +10,61 @@ import numpy as np
 import glove
 from sklearn.model_selection import train_test_split, ShuffleSplit, StratifiedShuffleSplit
 
+
+# In[3]:
+
 df = pd.read_csv("./data/fake.csv")
 cols = ["title", "text", "site_url", "type"] #main_img_url
 df = df[cols]
 df = df.replace({r'\r\n': '', r'\n': ''}, regex=True)
 df["type"] = 1
 
+
+# In[4]:
+
 df_ = pd.read_csv("./data/negative_examples.csv")
 df_['site_url'] = df_['site_url'].apply(lambda x: str(x).lstrip("www."))
 data = pd.concat([df, df_], axis=0)
+
+
+# Divide data into train and test sets
+
+# In[5]:
 
 y = data["type"]
 rs = ShuffleSplit(n_splits=3, random_state=0, test_size=0.20)
 train = data.loc[next(rs.split(data, y))[0], :]
 test = data.loc[next(rs.split(data, y))[1], :]
 
+
+# In[6]:
+
 train = train.dropna(axis=0)
 test = test.dropna(axis=0)
 
 
+# In[40]:
+
 #np.mean([len(i.split()) for i in train[train['type'] == 0]['text'].values])
 
+
+# In[41]:
+
 #np.mean([len(i.split()) for i in train[train['type'] == 1]['text'].values])
+
+
+# In[47]:
 
 test.to_csv("./data/test.csv", index=True)
 train.to_csv("./data/train.csv", index=True)
 
+
+# In[14]:
+
 #X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=2018)
+
+
+# In[7]:
 
 '''
 Single model may achieve LB scores at around 0.29+ ~ 0.30+
@@ -95,8 +127,7 @@ rate_drop_dense = 0.15 + np.random.rand() * 0.25
 act = 'relu'
 re_weight = True # whether to re-weight classes to fit the 17.5% share in test set
 
-STAMP = 'lstm_%d_%d_%.2f_%.2f'%(num_lstm, num_dense, rate_drop_lstm, \
-        rate_drop_dense)
+STAMP = 'lstm_%d_%d_%.2f_%.2f'%(num_lstm, num_dense, rate_drop_lstm,         rate_drop_dense)
 
 
 csv.field_size_limit(sys.maxsize)
@@ -106,14 +137,16 @@ csv.field_size_limit(sys.maxsize)
 ########################################
 print('Indexing word vectors')
 
-word2vec = KeyedVectors.load_word2vec_format(EMBEDDING_FILE, \
-        binary=True)
+word2vec = KeyedVectors.load_word2vec_format(EMBEDDING_FILE,         binary=True)
 print('Found %s word vectors of word2vec' % len(word2vec.vocab))
 
 ########################################
 ## process texts in datasets
 ########################################
 print('Processing text dataset')
+
+
+# In[8]:
 
 # The function "text_to_wordlist" is from
 # https://www.kaggle.com/currie32/quora-question-pairs/the-importance-of-cleaning-text
@@ -171,6 +204,9 @@ def text_to_wordlist(text, remove_stopwords=False, stem_words=False):
     # Return a list of words
     return(text)
 
+
+# In[9]:
+
 texts = [] 
 labels = []
 with codecs.open(TRAIN_DATA_FILE, encoding='utf-8') as f:
@@ -214,6 +250,9 @@ test_data = pad_sequences(test_sequences, maxlen=MAX_SEQUENCE_LENGTH)
 #test_data_2 = pad_sequences(test_sequences_2, maxlen=MAX_SEQUENCE_LENGTH)
 test_ids = np.array(test_ids)
 
+
+# In[15]:
+
 ########################################
 ## prepare embeddings
 ########################################
@@ -248,6 +287,9 @@ labels_val = labels[idx_val]
 #     weight_val *= 0.472001959
 #     weight_val[labels_val==0] = 1.309028344
 
+
+# In[23]:
+
 ########################################
 ## define the model structure
 ########################################
@@ -266,11 +308,11 @@ x1 = lstm_layer(embedded_sequences)
 
 #merged = concatenate([x1, y1])
 merged = BatchNormalization()(x1)
-merged = Dense(150, activation=act)(merged)
+merged = Dense(100, activation=act)(merged)
 merged = Dropout(0.2)(merged)
-merged = BatchNormalization()(merged)
-merged = Dense(50, activation=act)(merged)
-merged = Dropout(0.2)(merged)
+#merged = BatchNormalization()(merged)
+#merged = Dense(50, activation=act)(merged)
+#merged = Dropout(0.2)(merged)
 #merged = BatchNormalization()(merged)
 preds = Dense(1, activation='sigmoid')(merged)
 
@@ -281,6 +323,9 @@ preds = Dense(1, activation='sigmoid')(merged)
 #     class_weight = {'0': 1.309028344, '1': 0.472001959}
 # else:
 #     class_weight = None
+
+
+# In[15]:
 
 ########################################
 ## train the model
@@ -297,14 +342,16 @@ early_stopping =EarlyStopping(monitor='val_loss', patience=3)
 #bst_model_path = STAMP + '.h5'
 #model_checkpoint = ModelCheckpoint(bst_model_path, save_best_only=True, save_weights_only=False)
 
-hist = model.fit(data_train, labels_train, \
-                 #weight_val at the end of the next line
+hist = model.fit(data_train, labels_train,                  #weight_val at the end of the next line
         validation_data=(data_val, labels_val), \
-        epochs=3, batch_size=2048, shuffle=True, \
+        epochs=20, batch_size=128, shuffle=True, \
         callbacks=[early_stopping], verbose=2)
 
 #model.load_weights(bst_model_path)
 bst_val_score = min(hist.history['val_loss'])
+
+
+# In[ ]:
 
 ########################################
 ## make the submission
@@ -316,5 +363,14 @@ preds = model.predict([test_data], batch_size=8192, verbose=1)
 submission = pd.DataFrame({'test_id':test_ids, 'is_duplicate':preds.ravel()})
 submission.to_csv('%.4f_'%(bst_val_score)+STAMP+'.csv', index=False)
 
+
+# In[26]:
+
 from sklearn.metrics import classification_report
 print(classification_report(y_true=test.type.values, y_pred=[np.argmax(i) for i in preds.ravel()]))
+
+
+# In[ ]:
+
+model.save("model.h5")
+
