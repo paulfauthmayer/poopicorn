@@ -18,6 +18,7 @@ redis_port = config.get('ai', 'redis-port')
 conn = redis.from_url('{}:{}'.format(redis_url, redis_port))
 
 if __name__ == '__main__':
+
     with Connection(conn):
         worker = Worker(list(map(Queue, listen)))
         worker.work()

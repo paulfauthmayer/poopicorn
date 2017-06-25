@@ -3,6 +3,8 @@ import redis
 import tasks
 import configparser
 
+from model import Model
+
 from flask import Flask, request, json
 from flask_sockets import Sockets
 
@@ -30,6 +32,8 @@ redis_conn = redis.StrictRedis(host=redis_host, port=redis_port, db=0)
 q = Queue(connection=redis_conn)
 
 
+model = Model()
+
 # Serve landing page here TODO add landing page
 @app.route("/")
 def index():
@@ -50,7 +54,7 @@ def check(ws):
             js = (json.loads(message))
 
             url = js['url']
-            job = q.enqueue_call(func=tasks.check_url, args=(url,), result_ttl=5000)
+            job = q.enqueue_call(func=tasks.check_url, args=(url,model,), result_ttl=5000)
             res = json.dumps({ 'result': job.get_id() })
             ws.send(res)
 
