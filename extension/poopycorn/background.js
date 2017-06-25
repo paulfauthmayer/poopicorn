@@ -2,6 +2,7 @@
 browser.runtime.onMessage.addListener(notify);
 let lastPost;
 let uri = "ws://poopicor.pavo.uberspace.de:5000/echo";
+let jobIds = [];
 
 var websocket = new WebSocket(uri);
 websocket.onopen = function(evt) { onOpen(evt) };

@@ -16,11 +16,10 @@ function getPosts(request, sender, sendResponse)
 
       let postData = listOfPosts[i];
 
-      if ( postData !=  null && isNotSendYet(postData) )
-      {
+       if ( postData !=  null && isNotSendYet(postData) )
+       {
         sendPostData( getRelevantData(postData) );
-      }
-      return;
+       }
     }
   } else if (undefined != request["markPosts"] && request["markPosts"] == "starting")
   {
@@ -37,10 +36,11 @@ function getPosts(request, sender, sendResponse)
 
 
 function isNotSendYet(postData) {
-  if(!postData.id) {
-    return true;
-  } else {
+  console.log(postData);
+  if(null != postData.id && postData.id != "") {
     return false;
+  } else {
+    return true;
   }
 }
 
