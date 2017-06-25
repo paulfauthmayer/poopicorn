@@ -2,6 +2,7 @@ console.log("onSite with sockets");
 
 function getPosts(request, sender, sendResponse)
 {
+  console.log(request);
   if (undefined != request["getStarted"] && request["getStarted"] == "starting")
   {
     console.log("start getPosts");
@@ -16,50 +17,21 @@ function getPosts(request, sender, sendResponse)
       {
         sendPostData( getRelevantData(postData) );
       }
+      return;
     }
   } else if (undefined != request["markPosts"] && request["markPosts"] == "starting")
   {
-    if (request.data.rating >= 0.8)
-    {
-      // fake
-      styleFake(request.data.id);
-    } else if (request.data.rating >= 0.6)
-    {
-      // mostly fake
-      styleMostlyFake(request.data.id);
-    } else if (request.data.rating >= 0.2)
-    {
-      // dont really know
-      styleLittleShitty(request.data.id);
 
-    } else
-    {
-      // true
-      styleTrue(request.data.id);
-    }
-
-    console.log("sadsd");
+    visualizeResults(result);
+    console.log("pooooop");
     console.log(request.data);
+    return;
   }
+  console.log("shit")
 
 }
 
-function styleFake(id) {
-  let post = document.getElementById(id)
-  console.log("IT WORKS " + id);
-}
 
-function styleMostlyFake(id) {
-  let post = document.getElementById(id)
-}
-
-function styleLittleShitty(id) {
-  let post = document.getElementById(id)
-}
-
-function styleTrue(id) {
-  let post = document.getElementById(id)
-}
 
 function isNotSendYet(postData) {
   if(!postData.id) {
@@ -170,5 +142,18 @@ function visualizeResults(result) {
     }
 
 }
+
+var isScrolling;
+window.addEventListener('scroll', function ( event ) {
+    window.clearTimeout( isScrolling );
+    isScrolling = setTimeout(function() {
+      console.log("stop sc")
+      let request = {};
+      request["getStarted"] = "starting";
+      getPosts(request);
+    }, 125);
+
+}, false);
+
 
 browser.runtime.onMessage.addListener(getPosts);
