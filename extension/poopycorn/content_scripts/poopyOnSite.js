@@ -9,10 +9,12 @@ function getPosts(request, sender, sendResponse)
     let listOfPosts = document.getElementsByClassName('fbUserContent');
     for (let i = 0; i < listOfPosts.length;i++)
     {
-      let postData = getRelevantData(listOfPosts[i]);
-      if (postData !=  null && isNotSendYet(postData) )
+
+      let postData = listOfPosts[i];
+
+      if ( postData !=  null && isNotSendYet(postData) )
       {
-        sendPostData(postData);
+        sendPostData( getRelevantData(postData) );
       }
     }
   } else if (undefined != request["markPosts"] && request["markPosts"] == "starting")
@@ -22,13 +24,15 @@ function getPosts(request, sender, sendResponse)
   }
 
 }
+
 function isNotSendYet(postData) {
-  if(true) {
+  if(!postData.id) {
     return true;
   } else {
     return false;
   }
 }
+
 function getRelevantData (fbUserContent)
 {
   let titleEl = fbUserContent.getElementsByClassName("mbs")[0] ? fbUserContent.getElementsByClassName("mbs")[0].innerText : null;
@@ -37,11 +41,8 @@ function getRelevantData (fbUserContent)
   let posterEl = fbUserContent.getElementsByTagName("h5")[0] ? fbUserContent.getElementsByTagName("h5")[0].innerText : null;
   let websiteEl = fbUserContent.getElementsByClassName("ellipsis")[0] ? fbUserContent.getElementsByClassName("ellipsis")[0].innerText.toLowerCase() : null;
 
-  // let imageEl = fbUserContent.getElementsByClassName("scaledImageFitWidth")[0]
-  //     ? fbUserContent.getElementsByClassName("scaledImageFitWidth")[0]
-  //     : null;
-
   let data;
+
   if (titleEl != null && subtitleEl != null)
   {
     data = {
@@ -50,8 +51,11 @@ function getRelevantData (fbUserContent)
       description: descriptionEl,
       website: websiteEl,
       poster: posterEl,
+      id: convertToSlug( "poopicorn" + " " + posterEl.substring(0,12) + " " + titleEl.substring(0,12)),
 
     };
+
+    fbUserContent.id = data.id;
     return data;
   }
   return;
@@ -61,10 +65,14 @@ function sendPostData(postData)
 {
 
   console.log("sending event");
-
   console.log(postData);
 
    browser.runtime.sendMessage({"data": postData});
+}
+
+function convertToSlug(Text)
+{
+  return Text.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-');
 }
 
 browser.runtime.onMessage.addListener(getPosts);
