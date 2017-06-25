@@ -63,6 +63,9 @@ input, textarea, select {
 
 /* End of CSS Reset */
 
+.removed {
+    border: none;
+}
 
 body {
     font-family: 'Open Sans', sans-serif;
@@ -87,7 +90,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 3;
+  z-index: 2;
   border-bottom: 3px solid #033562;
 }
 
@@ -95,12 +98,16 @@ header h1 {
   width: 200px;
 }
 
-header nav a {
+header nav a, footer p {
   font-weight: 700;
   margin-left: 10px;
   transition: border 400ms ease-in;
   border-bottom: 2px solid rgba(0,0,0,0);
   padding-bottom: 3px;
+}
+
+header nav a:nth-child(1) {
+  color: #FE5294;
 }
 
 header nav a:hover {
@@ -111,10 +118,290 @@ header nav a.selected {
   border-bottom: 2px solid #FE5294;
 }
 
-section.main-section {
+section.main-section, section.video-section, section.team-section {
+  padding: 20px;
   min-height: 400px;
   display: flex;
   justify-content: space-between;
   background-image: url(img/pattern.svg);
   background-size: 60px 60px;
+}
+
+section.video-section {
+  background-image: url(img/pattern_2.svg);
+  flex-wrap: wrap;
+}
+
+section.team-section {
+  background-image: url(img/pattern_3.svg);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section.main-section img {
+  width: 500px;
+  height: 500px;
+}
+
+section.main-section h2 {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 96px;
+  line-height: 1.2;
+  color: #FFF;
+  text-shadow: 5px 5px #033562;
+}
+
+section .headliners {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 900px;
+  text-align: right;
+}
+
+section .headliners a {
+  margin-top: 20px;
+  padding: 20px;
+  padding-right: 0;
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 32px;
+  color: #fff;
+  text-shadow: 2px 2px #033562;
+  border-radius: 10px;
+}
+
+section .headliners p, section .description p {
+  font-size: 24px;
+  color: #FFF;
+  background-color: #FE5294;
+  box-shadow: 5px 5px 0px #033562;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+section .description p {
+  background-color: #FADF12;
+}
+
+section .description h2 {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 96px;
+  line-height: 1.2;
+  color: #033562;
+  text-shadow: 5px 5px #FADF12;
+}
+
+section .description p {
+  max-width: 650px;
+}
+
+section.video-section .youtube {
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px #033562;
+  width: 50%;
+}
+
+section.video-section .dashboard {
+  width: 650px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px #033562;
+}
+
+section.video-section .dashboard img, section.video-section .youtube img {
+  border-radius: 10px;
+}
+
+section.team-section .team h2 {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 96px;
+  line-height: 1.2;
+  color: #FADF12;
+  text-shadow: 5px 5px #FEA243;
+}
+
+section.team-section .faces {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+section.team-section .faces img {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  border-radius: 100%;
+  border: 5px solid #FADF12;
+  box-shadow: 5px 5px 0px #FEA243;
+}
+
+section.team-section .team-photo {
+  margin-top: 20px;
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px #FEA243
+}
+
+section.team-section .team-photo img {
+  border-radius: 10px;
+}
+
+footer {
+  width: 100%;
+  padding: 20px;
+  background-color: #FFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 3px solid #033562;
+}
+
+@media (max-width: 1366px) {
+
+  section.main-section h2, section .description h2, section.team-section .team h2 {
+    font-size: 72px;
+  }
+
+  section .headliners p, section .description p {
+    font-size: 18px;
+  }
+
+  section.video-section .youtube, section.video-section .dashboard {
+    width: 40%;
+  }
+}
+
+@media (max-width: 1200px) {
+
+  section.main-section h2, section .description h2, section.team-section .team h2 {
+    font-size: 48px;
+  }
+
+  section.main-section, section.video-section, section.team-section {
+    min-height: 0px;
+  }
+
+  section .headliners p, section .description p {
+    font-size: 16px;
+  }
+
+  section .headliners a {
+    font-size: 20px;
+  }
+
+  section.video-section .youtube, section.video-section .dashboard {
+    width: 80%;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  section .description p {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  section #dashboard {
+    order: 1;
+    margin-top: 60px;
+  }
+
+  section .dashboard {
+    order: 2;
+  }
+
+  section.video-section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 850px) {
+    header {
+      display: block;
+    }
+
+    header nav a {
+      margin-left: 0px;
+      margin-right: 10px;
+    }
+
+    .main-section {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    section.main-section img {
+      width: 60%;
+      height: 60%;
+    }
+
+    section.team-section .team-photo {
+      width: 100%;
+    }
+
+}
+
+@media (max-width: 750px) {
+    section.main-section {
+      justify-content: center;
+      align-items: center;
+    }
+
+    section.team-section .faces img {
+      width: 70px;
+      height: 70px;
+    }
+
+    footer {
+      flex-direction: column;
+      text-align: center;
+    }
+
+}
+
+@media (max-width: 680px) {
+    body {
+      padding-top: 100px;
+    }
+
+    section .headliners {
+      text-align: left;
+    }
+
+    section .headliners a {
+      padding-left: 0;
+    }
+
+    section .headliners p, section .description p {
+      font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+
+  body {
+    padding-top: 140px;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  header nav a {
+    font-size: 18px;
+  }
+
+  section #dashboard {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 320px) {
+  body {
+    padding-top: 160px;
+  }
 }
