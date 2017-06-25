@@ -1,6 +1,7 @@
+import os
 import redis
 import tasks
-import jsonify
+import configparser
 
 from flask import Flask, request, json
 from flask_sockets import Sockets
@@ -13,16 +14,32 @@ from sys import stdout
 from gevent import pywsgi
 from geventwebsocket.handler import WebSocketHandler
 
+current_dir = os.path.dirname(__file__)
+config_dir = os.path.join(current_dir, 'app.conf')
+config = configparser.ConfigParser()
+config.read(config_dir)
+
 app = Flask(__name__)
 sockets = Sockets(app)
 
-redis_conn = redis.StrictRedis(host='localhost', port=6379, db=0)
+redis_host = config.get('ai', 'redis-host')
+redis_port = config.get('ai', 'redis-port')
+server_port = int(config.get('ai', 'server-port'))
+
+redis_conn = redis.StrictRedis(host=redis_host, port=redis_port, db=0)
 q = Queue(connection=redis_conn)
 
 
+# Serve landing page here TODO add landing page
 @app.route("/")
 def index():
-    return "Hello World!"
+    return "Oh hello there!"
+
+
+# Serve dashboard page here TODO add dashboard page
+@app.route("/dash")
+def dash():
+    return "Quite dashing!"
 
 
 @sockets.route('/check')
@@ -34,7 +51,8 @@ def check(ws):
 
             url = js['url']
             job = q.enqueue_call(func=tasks.check_url, args=(url,), result_ttl=5000)
-            ws.send(job.get_id())
+            res = json.dumps({ 'result': job.get_id() })
+            ws.send(res)
 
 
 @sockets.route('/result')
@@ -45,15 +63,14 @@ def check(ws):
             js = (json.loads(message))
 
             job_key = js['job_key']
-
             job = Job.fetch(job_key, connection=conn)
 
             if job.is_finished:
-                 ws.send(jsonify str(job.result))
+                res = json.dumps({ 'result': str(job.result) })
             else:
-                return "Not finished", 202
+                res = json.dumps({ 'result': None })
+            ws.send(res)
 
 
 if __name__ == "__main__":
-    pywsgi.WSGIServer(('', 5000), app, log=stdout, handler_class=WebSocketHandler).serve_forever()
-    # app.run()
+    pywsgi.WSGIServer(('', server_port), app, log=stdout, handler_class=WebSocketHandler).serve_forever()
