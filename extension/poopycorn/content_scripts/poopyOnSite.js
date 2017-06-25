@@ -19,10 +19,46 @@ function getPosts(request, sender, sendResponse)
     }
   } else if (undefined != request["markPosts"] && request["markPosts"] == "starting")
   {
+    if (request.data.rating >= 0.8)
+    {
+      // fake
+      styleFake(request.data.id);
+    } else if (request.data.rating >= 0.6)
+    {
+      // mostly fake
+      styleMostlyFake(request.data.id);
+    } else if (request.data.rating >= 0.2)
+    {
+      // dont really know
+      styleLittleShitty(request.data.id);
+
+    } else
+    {
+      // true
+      styleTrue(request.data.id);
+    }
+
     console.log("sadsd");
     console.log(request.data);
   }
 
+}
+
+function styleFake(id) {
+  let post = document.getElementById(id)
+  console.log("IT WORKS " + id);
+}
+
+function styleMostlyFake(id) {
+  let post = document.getElementById(id)
+}
+
+function styleLittleShitty(id) {
+  let post = document.getElementById(id)
+}
+
+function styleTrue(id) {
+  let post = document.getElementById(id)
 }
 
 function isNotSendYet(postData) {
