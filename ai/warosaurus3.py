@@ -282,6 +282,7 @@ data_val = data[idx_val]
 # data_2_val = np.vstack((data_2[idx_val], data_1[idx_val]))
 labels_val = labels[idx_val]
 
+
 # weight_val = np.ones(len(labels_val))
 # if re_weight:
 #     weight_val *= 0.472001959
