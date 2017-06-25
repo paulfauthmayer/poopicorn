@@ -199,6 +199,8 @@ section .description p {
 }
 
 section.video-section .youtube {
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px #033562;
   width: 50%;
 }
 
@@ -206,6 +208,10 @@ section.video-section .dashboard {
   width: 650px;
   border-radius: 10px;
   box-shadow: 5px 5px 0px #033562;
+}
+
+section.video-section .dashboard img, section.video-section .youtube img {
+  border-radius: 10px;
 }
 
 section.team-section .team h2 {
@@ -229,6 +235,17 @@ section.team-section .faces img {
   border-radius: 100%;
   border: 5px solid #FADF12;
   box-shadow: 5px 5px 0px #FEA243;
+}
+
+section.team-section .team-photo {
+  margin-top: 20px;
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px #FEA243
+}
+
+section.team-section .team-photo img {
+  border-radius: 10px;
 }
 
 footer {
@@ -257,6 +274,7 @@ footer {
 }
 
 @media (max-width: 1200px) {
+
   section.main-section h2, section .description h2, section.team-section .team h2 {
     font-size: 48px;
   }
@@ -274,7 +292,7 @@ footer {
   }
 
   section.video-section .youtube, section.video-section .dashboard {
-    width: 100%;
+    width: 80%;
     text-align: center;
     margin-top: 40px;
   }
@@ -321,6 +339,10 @@ footer {
       height: 60%;
     }
 
+    section.team-section .team-photo {
+      width: 100%;
+    }
+
 }
 
 @media (max-width: 750px) {
@@ -332,6 +354,11 @@ footer {
     section.team-section .faces img {
       width: 70px;
       height: 70px;
+    }
+
+    footer {
+      flex-direction: column;
+      text-align: center;
     }
 
 }
@@ -366,11 +393,6 @@ footer {
 
   header nav a {
     font-size: 18px;
-  }
-
-  footer {
-    flex-direction: column;
-    text-align: center;
   }
 
   section #dashboard {
