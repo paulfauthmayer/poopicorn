@@ -1,16 +1,76 @@
+/* CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+
 html, body {
-  width: 100px;
-  background-color: pink;
+  width: 140px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: #033562;
+  padding: 10px;
+}
+
+h1 {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 24px;
+  text-align: center;
+  margin: 10px auto 0px;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  font-size: 18px;
+}
+
+.pink {
+  color: #FE5294;
+}
+
+.bold {
+  font-weight: 900;
+  color: #FE5294;
 }
 
 .button {
-  margin: 3% auto;
-  padding: 4px;
+  font-family: 'Fredoka One', sans-serif;
+  margin: 10px auto;
+  color: #fff;
+  padding: 10px;
+  background-color: #FE5294;
+  border-radius: 20px;
   text-align: center;
   font-size: 1.5em;
   cursor: pointer;
 }
 
+.activate {
+  transition: all 400ms;
+}
+
 .activate:hover {
-  background-color: #CFF2F2;
+  background-color: #033562;
 }
