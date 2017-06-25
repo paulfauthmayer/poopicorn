@@ -111,4 +111,64 @@ function convertToSlug(Text)
   return Text.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'-');
 }
 
+function visualizeResults(result) {
+
+    /*
+      result {
+        id
+        fake
+        confidence
+      }
+    */
+
+
+
+    element = document.getElementById(result.id)
+    if (result.fake)
+    {
+
+      let fontLink = document.createElement("link")
+      fontLink.setAttribute("href", "https://fonts.googleapis.com/css?family=Fredoka+One")
+      fontLink.setAttribute("rel", "stylesheet")
+      element.parentElement.insertBefore(fontLink, element.parentElement.firstChild)
+
+
+
+      let poopometerContainer = document.createElement("div")
+      poopometerContainer.className = "poopometerContainer"
+      poopometerContainer.style = 'background-color: #FE5294; width: 90%; height: 40px; padding: 5%; font-family: "Fredoka One", cursive !important; font-size: 30px !important; text-align: center; color: white;'
+
+      let poopometerLabel = document.createElement("span")
+      let label = document.createTextNode("Poop-o-Meter:");
+      label.style = 'display: inline-block; pading-right: 30px'
+      let poops = document.createTextNode("\t")
+
+      numberOfPoops = result.confidence * 5
+
+      for (let i = 0; i < numberOfPoops; i++) {
+        poops.textContent += String.fromCodePoint(0x1F4A9)
+      }
+
+      poopometerLabel.appendChild(label)
+      poopometerLabel.appendChild(poops)
+
+
+      let poopometerPoop = document.createElement("img")
+
+      poopometerContainer.appendChild(poopometerLabel)
+
+      poopometerContainer.appendChild(poopometerPoop)
+      poopometerContainer.appendChild(poopometerPoop)
+      poopometerContainer.appendChild(poopometerPoop)
+      poopometerContainer.appendChild(poopometerPoop)
+      poopometerContainer.appendChild(poopometerPoop)
+
+      element.parentElement.insertBefore(poopometerContainer, element.parentElement.firstChild)
+
+      element.style = 'border: 6px solid transparent;-moz-border-image: -moz-linear-gradient(top, #FE5294 0%, #FADF12  100%); -webkit-border-image: -webkit-linear-gradient(top, #FE5294 0%, #FADF12  100%); border-image: linear-gradient(to bottom, #FE5294 0%, #FADF12  100%); border-image-slice: 1;'
+
+    }
+
+}
+
 browser.runtime.onMessage.addListener(getPosts);

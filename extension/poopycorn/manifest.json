@@ -21,5 +21,12 @@
 
   "background": {
     "scripts": [ "socket.io.min.js", "background.js"]
-  }
+  },
+
+  "web_accessible_resources": [
+    "images/Poop-o-meter.png",
+    "images/Poopicorn_48px.png"
+  ]
+
+
 }
