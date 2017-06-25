@@ -1,10 +1,13 @@
 console.log("onSite with sockets");
 
+
+
 function getPosts(request, sender, sendResponse)
 {
-  console.log(request);
+
   if (undefined != request["getStarted"] && request["getStarted"] == "starting")
   {
+
     console.log("start getPosts");
 
     let listOfPosts = document.getElementsByClassName('fbUserContent');
@@ -147,10 +150,12 @@ var isScrolling;
 window.addEventListener('scroll', function ( event ) {
     window.clearTimeout( isScrolling );
     isScrolling = setTimeout(function() {
-      console.log("stop sc")
-      let request = {};
-      request["getStarted"] = "starting";
-      getPosts(request);
+
+        console.log("stop sc");
+        let request = {};
+        request["getStarted"] = "starting";
+        getPosts(request);
+
     }, 125);
 
 }, false);
