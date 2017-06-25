@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+    <title>Hello from Flask</title>
+</head>
+
+<body>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+
+    var domain = '127.0.0.1'
+    var port = 5000
+
+    var socket = io.connect('http://' + domain + ':' + port);
+    socket.on('connect', function() {
+        socket.emit('my event', {data: 'I\'m connected!'});
+    });
+</script>
+    
+</body>
