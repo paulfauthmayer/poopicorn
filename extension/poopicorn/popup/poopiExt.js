@@ -4,7 +4,7 @@ document.addEventListener("click", (e) =>
   if (e.target.classList.contains("activate"))
   {
   browser.tabs.executeScript(null, {
-      file: "/content_scripts/poopyOnSite.js"
+      file: "/content_scripts/poopiOnSite.js"
     });
 
     var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});

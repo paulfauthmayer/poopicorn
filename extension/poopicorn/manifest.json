@@ -2,7 +2,7 @@
 
   "description": "TEST 2",
   "manifest_version": 2,
-  "name": "poopycorn",
+  "name": "poopicorn",
   "version": "1.0",
   "icons": {
     "48": "icons/Poopicorn_logo_48px.png"
@@ -14,8 +14,8 @@
 
   "browser_action": {
     "default_icon": "icons/Poopicorn_logo_48px.png",
-    "default_title": "poopycorn",
-    "default_popup": "popup/poopy.html"
+    "default_title": "poopicorn",
+    "default_popup": "popup/poopi.html"
   },
 
 
