@@ -46,23 +46,37 @@ function isNotSendYet(postData) {
 
 function getRelevantData (fbUserContent)
 {
-  let titleEl = fbUserContent.getElementsByClassName("mbs")[0] ? fbUserContent.getElementsByClassName("mbs")[0].innerText : null;
-  let subtitleEl = fbUserContent.getElementsByClassName("_6m7")[0] ? fbUserContent.getElementsByClassName("_6m7")[0].innerText : null;
-  let descriptionEl = fbUserContent.getElementsByClassName("userContent")[0].getElementsByTagName("p")[0] ? fbUserContent.getElementsByClassName("userContent")[0].getElementsByTagName("p")[0].innerText : null;
-  let posterEl = fbUserContent.getElementsByTagName("h5")[0] ? fbUserContent.getElementsByTagName("h5")[0].innerText : null;
-  let websiteEl = fbUserContent.getElementsByClassName("ellipsis")[0] ? fbUserContent.getElementsByClassName("ellipsis")[0].innerText.toLowerCase() : null;
+  let titleEl = fbUserContent.getElementsByClassName("mbs")[0]
+              ? fbUserContent.getElementsByClassName("mbs")[0].innerText
+              : null;
+
+  let subtitleEl = fbUserContent.getElementsByClassName("_6m7")[0]
+                 ? fbUserContent.getElementsByClassName("_6m7")[0].innerText
+                 : null;
+
+  let descriptionEl = fbUserContent.getElementsByClassName("userContent")[0].getElementsByTagName("p")[0]
+                    ? fbUserContent.getElementsByClassName("userContent")[0].getElementsByTagName("p")[0].innerText
+                    : null;
+
+  let posterEl = fbUserContent.getElementsByTagName("h5")[0]
+               ? fbUserContent.getElementsByTagName("h5")[0].innerText
+               : null;
+
+  let websiteEl = fbUserContent.getElementsByClassName("ellipsis")[0]
+                ? fbUserContent.getElementsByClassName("ellipsis")[0].innerText.toLowerCase()
+                : null;
 
   let data;
 
-  if (titleEl != null && subtitleEl != null)
+  if (titleEl != null && posterEl != null)
   {
     data = {
-      title: titleEl,
-      subtitle: subtitleEl,
-      description: descriptionEl,
-      website: websiteEl,
-      poster: posterEl,
-      id: convertToSlug( "poopicorn" + " " + posterEl.substring(0,12) + " " + titleEl.substring(0,12)),
+      "title": titleEl,
+      "subtitle": subtitleEl,
+      "description": descriptionEl,
+      "website": websiteEl,
+      "poster": posterEl,
+      "id": convertToSlug( "poopicorn" + " " + posterEl.substring(0,12) + " " + titleEl.substring(0,12)),
 
     };
 
@@ -88,26 +102,17 @@ function convertToSlug(Text)
 
 function visualizeResults(result) {
 
-    /*
-      result {
-        id
-        fake
-        confidence
-      }
-    */
-
-
-
     element = document.getElementById(result.id)
     if (result.fake)
     {
 
+      // include Google Fonts Stylesheet
       let fontLink = document.createElement("link")
       fontLink.setAttribute("href", "https://fonts.googleapis.com/css?family=Fredoka+One")
       fontLink.setAttribute("rel", "stylesheet")
       element.parentElement.insertBefore(fontLink, element.parentElement.firstChild)
 
-
+      // create top part of wrapper
 
       let poopometerContainer = document.createElement("div")
       poopometerContainer.className = "poopometerContainer"
@@ -126,21 +131,34 @@ function visualizeResults(result) {
 
       poopometerLabel.appendChild(label)
       poopometerLabel.appendChild(poops)
-
-
-      let poopometerPoop = document.createElement("img")
-
       poopometerContainer.appendChild(poopometerLabel)
-
-      poopometerContainer.appendChild(poopometerPoop)
-      poopometerContainer.appendChild(poopometerPoop)
-      poopometerContainer.appendChild(poopometerPoop)
-      poopometerContainer.appendChild(poopometerPoop)
-      poopometerContainer.appendChild(poopometerPoop)
-
       element.parentElement.insertBefore(poopometerContainer, element.parentElement.firstChild)
 
+      // add Rainbow Border
+
       element.style = 'border: 6px solid transparent;-moz-border-image: -moz-linear-gradient(top, #FE5294 0%, #FADF12  100%); -webkit-border-image: -webkit-linear-gradient(top, #FE5294 0%, #FADF12  100%); border-image: linear-gradient(to bottom, #FE5294 0%, #FADF12  100%); border-image-slice: 1;'
+
+      // add bottom part of wrapper
+
+      let infoContainer = document.createElement("div")
+      infoContainer.className = "infoContainer"
+      infoContainer.style = 'background-color: #FADF12; width: 90%; height: 40px; padding: 5%; font-family: "Fredoka One", cursive !important; font-size: 30px !important; text-align: center; color: white;'
+
+      let infoLink = document.createElement("a");
+      infoLink.setAttribute("href", "http://poopicorn.press")
+      let infoLinkText = document.createTextNode("How we detect fake news >");
+      infoLink.appendChild(infoLinkText)
+
+      let complainLink = document.createElement("a");
+      complainLink.setAttribute("href", "http://poopicorn.press")
+      let complainLinkText = document.createTextNode("Not fake news? Complain!");
+      complainLink.appendChild(complainLinkText)
+
+      element.parentElement.insertBefore(infoContainer, element.parentElement.lastChild.nextSibling)
+
+
+
+
 
     }
 
