@@ -140,19 +140,33 @@ function visualizeResults(result) {
 
       // add bottom part of wrapper
 
+      // create info container
       let infoContainer = document.createElement("div")
       infoContainer.className = "infoContainer"
-      infoContainer.style = 'background-color: #FADF12; width: 90%; height: 40px; padding: 5%; font-family: "Fredoka One", cursive !important; font-size: 30px !important; text-align: center; color: white;'
+      infoContainer.style = 'background-color: #FADF12; width: 94%; height: 20px; padding: 3%; font-family: "Fredoka One", cursive !important; font-size: 16px !important; text-align: center;'
 
+      // create link to information page
       let infoLink = document.createElement("a");
-      infoLink.setAttribute("href", "http://poopicorn.press")
-      let infoLinkText = document.createTextNode("How we detect fake news >");
+      infoLink.setAttribute("href", "http://poopicorn.press") //todo: set actual url
+      let infoLinkText = document.createTextNode("How we detect fake news");
+      infoLink.style = 'float: left;'
       infoLink.appendChild(infoLinkText)
 
+      // create link to complain form
       let complainLink = document.createElement("a");
-      complainLink.setAttribute("href", "http://poopicorn.press")
+      complainLink.setAttribute("href", "http://poopicorn.press") //todo: set actual url
       let complainLinkText = document.createTextNode("Not fake news? Complain!");
+      complainLink.style = 'float: right'
       complainLink.appendChild(complainLinkText)
+
+      // add both links to the container
+      infoContainer.appendChild(infoLink);
+      infoContainer.appendChild(complainLink);
+
+      // add stlyling
+      // todo
+
+
 
       element.parentElement.insertBefore(infoContainer, element.parentElement.lastChild.nextSibling)
 
