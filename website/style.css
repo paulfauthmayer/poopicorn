@@ -319,7 +319,7 @@ footer {
   }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1100px) {
     header {
       display: block;
     }
@@ -329,9 +329,12 @@ footer {
       margin-right: 10px;
     }
 
-    .main-section {
+
+    section.main-section {
       flex-direction: column;
       justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     section.main-section img {
@@ -345,11 +348,7 @@ footer {
 
 }
 
-@media (max-width: 750px) {
-    section.main-section {
-      justify-content: center;
-      align-items: center;
-    }
+@media (max-width: 780px) {
 
     section.team-section .faces img {
       width: 70px;
@@ -397,6 +396,10 @@ footer {
 
   section #dashboard {
     margin-top: 30px;
+  }
+
+  section.video-section .youtube, section.video-section .dashboard {
+    width: 100%;
   }
 }
 
